@@ -3,8 +3,6 @@ import streamlit as st
 import base64
 from PIL import Image
 
-# 画像ファイルのパス
-IMAGE_PATH = "aaa.jpeg" # ここにイメージファイルのパスを設定してください
 
 st.title("Embedding Dify app in Streamlit")
 
@@ -18,6 +16,8 @@ def get_base64_of_image(image_path):
         encoded_string = base64.b64encode(image_file.read()).decode()
     return encoded_string
 
+# 画像ファイルのパス
+IMAGE_PATH = "aaa.jpeg" # ここにイメージファイルのパスを設定してください
 
 # 画像をbase64エンコード
 image_base64 = get_base64_of_image(IMAGE_PATH)
