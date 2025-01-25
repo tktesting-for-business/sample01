@@ -21,7 +21,7 @@ def get_base64_of_image(image_path):
 IMAGE_PATH = "aaa.jpeg" # ここにイメージファイルのパスを設定してください
 
 # 画像をbase64エンコード
-image_base64 = get_base64_of_image(IMAGE_PATH)
+image_base64 = get_base64_of_image("aaa.jpeg")
 
 # CSSで枠のスタイルを定義（背景画像を含む）
 BOX_STYLE = f"""
