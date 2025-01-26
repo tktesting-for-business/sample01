@@ -12,7 +12,7 @@ OUTPUT_PATH = "output_image.jpeg"
 url = "https://api.dify.ai/v1/completion-messages"
 
 headers = {
-    'Authorization': 'app-esamNSyt3DcelD4o6yM9uH4U==',
+    'Authorization': 'Bearer app-esamNSyt3DcelD4o6yM9uH4U',
     'Content-Type': 'application/json',
 }
 
