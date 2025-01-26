@@ -62,7 +62,7 @@ OUTPUT_PATH = "output_image.jpeg"
 image.save(OUTPUT_PATH, "JPEG")
 
 # 画面サイズを調整
-resized_image = resize_image(image, MAX_WIDTH, MAX_HEIGHT)
+# resized_image = resize_image(image, MAX_WIDTH, MAX_HEIGHT)
 
 # 画面に表示する場合 (Streamlitを使う場合)
-st.image(resized_image, caption='赤枠が追加された画像', use_column_width=True)
+st.image(image, caption='赤枠が追加された画像', use_column_width=True)
