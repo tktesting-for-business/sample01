@@ -34,7 +34,7 @@ box_h = 23
 if __name__ == "__main__":
     # テキストボックス
     #if st.text_input("x").isdigit():
-    box_x = int(st.text_input("x"))
+    box_x = st.number_input("x")
     #if st.text_input("y").isdigit():
     box_y = int(st.text_input("y"))
     #if st.text_input("w").isdigit():
