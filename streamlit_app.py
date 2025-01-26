@@ -12,10 +12,10 @@ st.title("Embedding Dify app in Streamlit")
 img = Image.open('aaa.jpg')
 st.image(img)
 
-x_rect = st.text_input("x")
-y_rect = st.text_input("y")
-w_rect = st.text_input("w")
-h_rect = st.text_input("h")
+box_x = st.text_input("x")
+box_y = st.text_input("y")
+box_w = st.text_input("w")
+box_h = st.text_input("h")
 
 
 
@@ -52,15 +52,18 @@ width, height = image.size
 
 # 赤枠のサイズと位置を定義 (例：画像の中央)
 box_size = 50
-box_x = (width - box_size) // 2
-box_y = (height - box_size) // 2
+#box_x = (width - box_size) // 2
+#box_y = (height - box_size) // 2
 box_coords = (box_x, box_y, box_x + box_size, box_y + box_size)
 
 # ImageDraw オブジェクトを作成
 draw = ImageDraw.Draw(image)
 
 # 赤枠を描画
-draw.rectangle(box_coords, outline="red", width=2)
+draw.rectangle(
+    [(box_x, box_y), (box_x + box_w, box_y + box_h)], fill=(255, 0, 0), outline=(0, 255, 0), width=10
+)
+# draw.rectangle(box_coords, outline="red", width=2)
 
 # 結果を保存するファイルパス
 OUTPUT_PATH = "output_image.jpeg"
