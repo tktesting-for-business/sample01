@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as stc
 import base64
 from PIL import Image,ImageDraw
-from io import BytesIO
+# from io import BytesIO
 
 # 画像ファイルのパス
 IMAGE_PATH = "aaa.jpg" # ここにイメージファイルのパスを設定してください
@@ -41,24 +41,17 @@ def resize_image(image, max_width, max_height):
 # リサイズ後の最大サイズ
 MAX_WIDTH = width
 MAX_HEIGHT = height
-resized_image = resize_image(image, MAX_WIDTH, MAX_HEIGHT)
 
 # 画像を読み込み
 try:
     image = Image.open(IMAGE_PATH).convert("RGB") # RGBに変換
-    resized_image = resize_image(image, MAX_WIDTH, MAX_HEIGHT)
+    resized_image = resize_image(image, MAX_WIDTH, MAX_HEIGHT) #リサイズ
 except FileNotFoundError:
     print(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
     exit()
 
 # 画像サイズを取得
 width, height = image.size
-
-# 赤枠のサイズと位置を定義 (例：画像の中央)
-box_size = 50
-#box_x = (width - box_size) // 2
-#box_y = (height - box_size) // 2
-box_coords = (box_x, box_y, box_x + box_size, box_y + box_size)
 
 # ImageDraw オブジェクトを作成
 draw = ImageDraw.Draw(resized_image)
@@ -67,7 +60,6 @@ draw = ImageDraw.Draw(resized_image)
 draw.rectangle(
     [(box_x, box_y), (box_x + box_w, box_y + box_h)], outline="red", width=2
 )
-# draw.rectangle(box_coords, outline="red", width=2)
 
 # 結果を保存するファイルパス
 OUTPUT_PATH = "output_image.jpeg"
