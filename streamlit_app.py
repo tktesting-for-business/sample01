@@ -10,7 +10,7 @@ IMAGE_PATH = "aaa.jpg"
 OUTPUT_PATH = "output_image.jpeg"
 
 #########################################
-url = "https://api.dify.ai/v1/chat-messages"
+url = "https://api.dify.ai/v1/completion-messages"
 
 headers = {
     'Authorization': 'Bearer app-Jsv6lWXXoZDyKXI3RnBLAT2b',
