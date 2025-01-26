@@ -10,9 +10,23 @@ OUTPUT_PATH = "output_image.jpeg"
 
 st.title("Embedding Dify app in Streamlit")
 st.write("元の画像")
-img = Image.open(IMAGE_PATH)
-st.image(img)
+# 画像を読み込み
+try:
+    img = Image.open(IMAGE_PATH)
+    st.image(img)
+    # 画像サイズを取得
+    width, height = img.size
+    st.write(str(width) + "," + str(height))
 
+except FileNotFoundError:
+    st.error(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
+    st.stop()
+
+
+#box_x = 123
+#box_y = 136
+#box_w = 114
+#box_h = 23
 
 if __name__ == "__main__":
     # テキストボックス
@@ -22,23 +36,12 @@ if __name__ == "__main__":
     box_h = st.text_input("h")
     # ボタン
     if st.button("Dify APIを呼び出す"):
-        RedRectDraw(img,width, height)
+        retImg = RedRectDraw(img,width, height)
+        # 画面に表示
+        st.write("文字を赤枠で囲った画像")
+        st.image(retImg, caption='赤枠が追加された画像', use_column_width=True)
 
-    #box_x = 123
-    #box_y = 136
-    #box_w = 114
-    #box_h = 23
 
-# 画像サイズを取得
-width, height = img.size
-st.write(str(width) + "," + str(height))
-
-# 画像を読み込み
-try:
-  image = Image.open(IMAGE_PATH)
-except FileNotFoundError:
-    st.error(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
-    st.stop()
 
 # 画像をリサイズする関数
 def resize_image(image, max_width, max_height):
@@ -73,9 +76,6 @@ def RedRectDraw(image, max_width, max_height):
   # 加工後の画像を保存
   resized_image.save(OUTPUT_PATH, "JPEG")
     
-  # 画面に表示
-  st.write("文字を赤枠で囲った画像")
-  st.image(resized_image, caption='赤枠が追加された画像', use_column_width=True)
-  return
+  return resized_image
 
   
