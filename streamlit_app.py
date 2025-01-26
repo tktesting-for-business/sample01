@@ -19,7 +19,7 @@ headers = {
 
 data = {
     "inputs": {},
-    "query": "hello",
+    "query": "現在の日本の総理大臣は",
     "response_mode": "streaming",  
     "user": "taka3chijp@gmail.com"
 }
