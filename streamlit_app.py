@@ -13,10 +13,23 @@ st.write("元の画像")
 img = Image.open(IMAGE_PATH)
 st.image(img)
 
-#box_x = st.text_input("x")
-#box_y = st.text_input("y")
-#box_w = st.text_input("w")
-#box_h = st.text_input("h")
+
+if __name__ == "__main__":
+    # テキストボックス
+    box_x = st.text_input("x")
+    box_y = st.text_input("y")
+    box_w = st.text_input("w")
+    box_h = st.text_input("h")
+
+    try:
+        # ボタン
+        if st.button("Dify APIを呼び出す"):
+            answer = get_dify_response(query)
+            #answer = get_dify_response(query)
+        
+        st.write(answer)
+    except requests.RequestException as e:
+        st.write(f"エラーが発生しました: {e}")
 
 box_x = 123
 box_y = 136
@@ -43,30 +56,33 @@ def resize_image(image, max_width, max_height):
 MAX_WIDTH = width
 MAX_HEIGHT = height
 
+
+def RedRectDraw(image, max_width, max_height):
 # 画像を読み込み
-try:
-    image = Image.open(IMAGE_PATH).convert("RGB") # RGBに変換
-    resized_image = resize_image(image, MAX_WIDTH, MAX_HEIGHT) #リサイズ
-except FileNotFoundError:
-    print(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
-    exit()
+  try:
+      image = Image.open(IMAGE_PATH).convert("RGB") # RGBに変換
+      resized_image = resize_image(image, max_width, max_height) #リサイズ
+  except FileNotFoundError:
+      print(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
+      exit()
+  
+  # 画像サイズを取得
+  width, height = image.size
+  
+  # ImageDraw オブジェクトを作成
+  draw = ImageDraw.Draw(resized_image)
+  
+  # 赤枠を描画
+  draw.rectangle(
+      [(box_x, box_y), (box_x + box_w, box_y + box_h)], outline="red", width=2
+  )
+  
+  # 加工後の画像を保存
+  resized_image.save(OUTPUT_PATH, "JPEG")
+    
+  # 画面に表示
+  st.write("文字を赤枠で囲った画像")
+  st.image(resized_image, caption='赤枠が追加された画像', use_column_width=True)
+  return
 
-# 画像サイズを取得
-width, height = image.size
-
-# ImageDraw オブジェクトを作成
-draw = ImageDraw.Draw(resized_image)
-
-# 赤枠を描画
-draw.rectangle(
-    [(box_x, box_y), (box_x + box_w, box_y + box_h)], outline="red", width=2
-)
-
-# 加工後の画像を保存
-resized_image.save(OUTPUT_PATH, "JPEG")
-
-# 画面サイズを調整
-
-# 画面に表示する場合 (Streamlitを使う場合)
-st.write("文字を赤枠で囲った画像")
-st.image(resized_image, caption='赤枠が追加された画像', use_column_width=True)
+  
