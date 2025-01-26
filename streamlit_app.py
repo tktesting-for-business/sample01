@@ -13,13 +13,12 @@ OUTPUT_PATH = "output_image.jpeg"
 url = "https://api.dify.ai/v1/chat-messages"
 
 headers = {
-    'Authorization': 'Bearer app-5oYxLlGtVlRZTmS6lJ2wCGeq',
+    'Authorization': 'Bearer app-Jsv6lWXXoZDyKXI3RnBLAT2b',
     'Content-Type': 'application/json',
 }
 
 data = {
-    "inputs": {},
-    "query": "現在の日本の総理大臣は",
+    "inputs": {"text": 'Hello, how are you?'},
     "response_mode": "streaming",  
     "user": "taka3chijp@gmail.com"
 }
