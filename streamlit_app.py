@@ -33,16 +33,11 @@ box_h = 23
 
 if __name__ == "__main__":
     # テキストボックス
-    #if st.text_input("x").isdigit():
     box_x = st.number_input("x")
-    #if st.text_input("y").isdigit():
-    box_y = int(st.text_input("y"))
-    #if st.text_input("w").isdigit():
-    box_w = int(st.text_input("w"))
-    #if st.text_input("h").isdigit():
-    box_h = int(st.text_input("h"))
+    box_y = st.number_input("y")
+    box_w = st.number_input("w")
+    box_h = st.number_input("h")
         
-    
     # ボタン
     if st.button("Dify APIを呼び出す"):
 
