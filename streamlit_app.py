@@ -13,7 +13,7 @@ st.title("Embedding Dify app in Streamlit")
 
 # 画像ファイルをbase64エンコードしてCSSに埋め込む
 def get_base64_of_image(image_path):
-    encoded_string = base64.b64encode(image_file.read()).decode()
+
     try:
         with open(image_path, "rb") as image_file:
             encoded_string = "test"
