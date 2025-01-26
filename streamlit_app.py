@@ -18,7 +18,7 @@ headers = {
 }
 
 data = {
-    "inputs": {"input": 'Hello, how are you?'},
+    "inputs": {"query": 'Hello, how are you?'},
     "response_mode": "streaming",
     "user": "taka3chijp@gmail.com"
 }
