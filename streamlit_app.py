@@ -81,36 +81,35 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-html_code = """
-<img id="myImage" src="aaa.jpg" alt="Target Image" style="display: none;">
-<canvas id="myCanvas"></canvas>
-<script>
-  const img = document.getElementById('myImage');
-  const canvas = document.getElementById('myCanvas');
-  const ctx = canvas.getContext('2d');
 
-  img.onload = () => {
-    canvas.width = 400;
-    canvas.height = 200;
-    ctx.scale(2, 2);
-    ctx.drawImage(img, 0, 0);
+# 画像を読み込み
+try:
+    image = Image.open(IMAGE_PATH).convert("RGB") # RGBに変換
+except FileNotFoundError:
+    print(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
+    exit()
 
-    // テキストの位置とサイズ (手動で指定)
-    const x = 123;
-    const y = 135;
-    const w = 98;
-    const h = 21;
+# 画像サイズを取得
+width, height = image.size
 
-    // 赤い枠を描画する
-    ctx.strokeStyle = 'red';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(x, y, w, h);
-  };
-</script>
-"""
+# 赤枠のサイズと位置を定義 (例：画像の中央)
+box_size = 50
+box_x = (width - box_size) // 2
+box_y = (height - box_size) // 2
+box_coords = (box_x, box_y, box_x + box_size, box_y + box_size)
 
-stc.html(html_code, height=700)
+# ImageDraw オブジェクトを作成
+draw = ImageDraw.Draw(image)
 
+# 赤枠を描画
+draw.rectangle(box_coords, outline="red", width=2)
 
+# 結果を保存するファイルパス
+OUTPUT_PATH = "output_image.jpeg"
 
+# 加工後の画像を保存
+image.save(OUTPUT_PATH, "JPEG")
 
+# 画面に表示する場合 (Streamlitを使う場合)
+# import streamlit as st
+st.image(image, caption='赤枠が追加された画像', use_column_width=True)
