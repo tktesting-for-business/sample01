@@ -40,15 +40,15 @@ if __name__ == "__main__":
         # 画像を読み込み
         try:
             image = Image.open(IMAGE_PATH).convert("RGB") # RGBに変換
-            resized_image = resize_image(image, max_width, max_height) #リサイズ
+            # resized_image = resize_image(image, max_width, max_height) #リサイズ
         except FileNotFoundError:
             st.error(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
             st.stop()
       
-        RedRectDraw(resized_image, width, height)
+        RedRectDraw(image, width, height)
         # 画面に表示
         st.write("文字を赤枠で囲った画像")
-        st.image(retImg, caption='赤枠が追加された画像', use_column_width=True)
+        st.image(image, caption='赤枠が追加された画像', use_column_width=True)
 
 
 
