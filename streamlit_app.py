@@ -64,7 +64,7 @@ draw = ImageDraw.Draw(image)
 
 # 赤枠を描画
 draw.rectangle(
-    [(box_x, box_y), (box_x + box_w, box_y + box_h)], fill=(0, 0, 0), outline=(0, 255, 0), width=10
+    [(box_x, box_y), (box_x + box_w, box_y + box_h)], fill=(255, 0, 0), outline=(0, 255, 0), width=1
 )
 # draw.rectangle(box_coords, outline="red", width=2)
 
