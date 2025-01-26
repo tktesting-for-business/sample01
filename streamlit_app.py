@@ -2,10 +2,11 @@ import streamlit as st
 import streamlit.components.v1 as stc
 import base64
 from PIL import Image,ImageDraw
-# from io import BytesIO
 
-# 画像ファイルのパス
-IMAGE_PATH = "aaa.jpg" # ここにイメージファイルのパスを設定してください
+# インプット画像ファイルのパス
+IMAGE_PATH = "aaa.jpg"
+# アウトプット画像ファイルのパス
+OUTPUT_PATH = "output_image.jpeg"
 
 st.title("Embedding Dify app in Streamlit")
 st.write("元の画像")
@@ -60,9 +61,6 @@ draw = ImageDraw.Draw(resized_image)
 draw.rectangle(
     [(box_x, box_y), (box_x + box_w, box_y + box_h)], outline="red", width=2
 )
-
-# 結果を保存するファイルパス
-OUTPUT_PATH = "output_image.jpeg"
 
 # 加工後の画像を保存
 resized_image.save(OUTPUT_PATH, "JPEG")
