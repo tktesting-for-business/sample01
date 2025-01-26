@@ -22,7 +22,7 @@ if __name__ == "__main__":
     box_h = st.text_input("h")
     # ボタン
     if st.button("Dify APIを呼び出す"):
-        RedRectDraw(img)
+        RedRectDraw(img,width, height)
 
     #box_x = 123
     #box_y = 136
