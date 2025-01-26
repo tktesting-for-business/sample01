@@ -13,7 +13,7 @@ OUTPUT_PATH = "output_image.jpeg"
 url = "https://api.dify.ai/v1/chat-messages"
 
 headers = {
-    'Authorization': 'Bearer app-esamNSyt3DcelD4o6yM9uH4U',
+    'Authorization': 'Bearer app-5oYxLlGtVlRZTmS6lJ2wCGeq',
     'Content-Type': 'application/json',
 }
 
