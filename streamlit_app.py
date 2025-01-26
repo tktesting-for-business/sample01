@@ -59,8 +59,8 @@ def RedRectDraw(max_width, max_height):
       image = Image.open(IMAGE_PATH).convert("RGB") # RGBに変換
       resized_image = resize_image(image, max_width, max_height) #リサイズ
   except FileNotFoundError:
-      print(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
-      exit()
+      st.error(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
+      st.stop()
   
   # 画像サイズを取得
   width, height = image.size
