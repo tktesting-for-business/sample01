@@ -14,7 +14,7 @@ st.image(img)
 
 # 画像サイズを取得
 width, height = img.size
-st.write(width)
+st.write(str(width) + "," + str(height))
 
 # 画像を読み込み
 try:
