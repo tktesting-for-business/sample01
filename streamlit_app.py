@@ -36,7 +36,7 @@ if __name__ == "__main__":
     box_h = st.text_input("h")
     # ボタン
     if st.button("Dify APIを呼び出す"):
-        retImg = RedRectDraw(img,width, height)
+        retImg = RedRectDraw(width, height)
         # 画面に表示
         st.write("文字を赤枠で囲った画像")
         st.image(retImg, caption='赤枠が追加された画像', use_column_width=True)
@@ -53,7 +53,7 @@ MAX_WIDTH = width
 MAX_HEIGHT = height
 
 
-def RedRectDraw(image, max_width, max_height):
+def RedRectDraw(max_width, max_height):
 # 画像を読み込み
   try:
       image = Image.open(IMAGE_PATH).convert("RGB") # RGBに変換
