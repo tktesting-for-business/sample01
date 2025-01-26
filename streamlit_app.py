@@ -26,10 +26,10 @@ except FileNotFoundError:
 MAX_WIDTH = width
 MAX_HEIGHT = height
 
-#box_x = 123
-#box_y = 136
-#box_w = 114
-#box_h = 23
+box_x = 123
+box_y = 136
+box_w = 114
+box_h = 23
 
 if __name__ == "__main__":
     # テキストボックス
