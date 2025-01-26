@@ -25,6 +25,8 @@ image.save(buffered, format="JPEG")
 img_str = base64.b64encode(buffered.getvalue()).decode()
 img_url = f"data:image/jpeg;base64,{img_str}"
 
+st.write(img_str)
+
 # CSSで枠のスタイルを定義（背景画像を含む）
 BOX_STYLE = f"""
 <style>
