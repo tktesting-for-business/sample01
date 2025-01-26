@@ -9,8 +9,8 @@ IMAGE_PATH = "aaa.jpg" # ここにイメージファイルのパスを設定し�
 
 st.title("Embedding Dify app in Streamlit")
 
-# img = Image.open('aaa.jpg')
-# st.image(img)
+img = Image.open('aaa.jpg')
+st.image(img)
 
 # 画像を読み込み
 try:
