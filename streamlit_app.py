@@ -36,7 +36,16 @@ if __name__ == "__main__":
     box_h = st.text_input("h")
     # ボタン
     if st.button("Dify APIを呼び出す"):
-        retImg = RedRectDraw(width, height)
+
+        # 画像を読み込み
+        try:
+            image = Image.open(IMAGE_PATH).convert("RGB") # RGBに変換
+            resized_image = resize_image(image, max_width, max_height) #リサイズ
+        except FileNotFoundError:
+            st.error(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
+            st.stop()
+      
+        RedRectDraw(resized_image, width, height)
         # 画面に表示
         st.write("文字を赤枠で囲った画像")
         st.image(retImg, caption='赤枠が追加された画像', use_column_width=True)
@@ -53,20 +62,13 @@ MAX_WIDTH = width
 MAX_HEIGHT = height
 
 
-def RedRectDraw(max_width, max_height):
-# 画像を読み込み
-  try:
-      image = Image.open(IMAGE_PATH).convert("RGB") # RGBに変換
-      resized_image = resize_image(image, max_width, max_height) #リサイズ
-  except FileNotFoundError:
-      st.error(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
-      st.stop()
-  
+def RedRectDraw(image, max_width, max_height):
+
   # 画像サイズを取得
   width, height = image.size
   
   # ImageDraw オブジェクトを作成
-  draw = ImageDraw.Draw(resized_image)
+  draw = ImageDraw.Draw(image)
   
   # 赤枠を描画
   draw.rectangle(
@@ -74,8 +76,7 @@ def RedRectDraw(max_width, max_height):
   )
   
   # 加工後の画像を保存
-  resized_image.save(OUTPUT_PATH, "JPEG")
+  image.save(OUTPUT_PATH, "JPEG")
     
-  return resized_image
 
   
