@@ -20,10 +20,10 @@ headers = {
 data = {
     "inputs": {},
     "query": "eh",
-    "response_mode": "streaming",
-    "conversation_id": "1c7e55fb-1ba2-4e10-81b5-30addcea2276",
+    "response_mode": "streaming",  
     "user": "taka3chijp@gmail.com"
 }
+# "conversation_id": "1c7e55fb-1ba2-4e10-81b5-30addcea2276",
 
 response = requests.post(url, headers=headers, json=data)
 # response = requests.post(url, headers=headers, data=json.dumps(data))
