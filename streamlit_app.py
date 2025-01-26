@@ -22,6 +22,9 @@ except FileNotFoundError:
     st.error(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
     st.stop()
 
+# リサイズ後の最大サイズ
+MAX_WIDTH = width
+MAX_HEIGHT = height
 
 #box_x = 123
 #box_y = 136
@@ -47,8 +50,17 @@ if __name__ == "__main__":
         
         # 画像サイズを取得
         width, height = image.size
-
-        RedRectDraw(image, width, height)
+        
+        # ImageDraw オブジェクトを作成
+        draw = ImageDraw.Draw(image)
+        # 赤枠を描画
+        draw.rectangle(
+          [(box_x, box_y), (box_x + box_w, box_y + box_h)], outline="red", width=2
+        )
+  
+        # 加工後の画像を保存
+        image.save(OUTPUT_PATH, "JPEG")
+    
         # 画面に表示
         st.write("文字を赤枠で囲った画像")
         st.image(image, caption='赤枠が追加された画像', use_column_width=True)
@@ -60,22 +72,8 @@ def resize_image(image, max_width, max_height):
     image.thumbnail((max_width, max_height), Image.LANCZOS)  # Lanczosフィルタを使用
     return image
 
-# リサイズ後の最大サイズ
-MAX_WIDTH = width
-MAX_HEIGHT = height
 
 
-def RedRectDraw(image, max_width, max_height):  
-  # ImageDraw オブジェクトを作成
-  draw = ImageDraw.Draw(image)
-  
-  # 赤枠を描画
-  draw.rectangle(
-      [(box_x, box_y), (box_x + box_w, box_y + box_h)], outline="red", width=2
-  )
-  
-  # 加工後の画像を保存
-  image.save(OUTPUT_PATH, "JPEG")
-    
+
 
   
