@@ -10,7 +10,7 @@ IMAGE_PATH = "aaa.jpg"
 OUTPUT_PATH = "output_image.jpeg"
 
 #########################################
-url = "https://api.dify.ai/v1/completion-messages"
+url = "https://api.dify.ai/v1/chat-messages"
 
 headers = {
     'Authorization': 'Bearer app-esamNSyt3DcelD4o6yM9uH4U',
@@ -18,13 +18,15 @@ headers = {
 }
 
 data = {
-    "inputs": {"text": 'Hello, how are you?'},
+    "inputs": {},
+    "query": "eh",
     "response_mode": "streaming",
+    "conversation_id": "1c7e55fb-1ba2-4e10-81b5-30addcea2276",
     "user": "taka3chijp@gmail.com"
 }
 
-# response = requests.post(url, headers=headers, json=data)
-response = requests.post(url, headers=headers, data=json.dumps(data))
+response = requests.post(url, headers=headers, json=data)
+# response = requests.post(url, headers=headers, data=json.dumps(data))
 st.write(response.text)
 #############################
 
