@@ -90,8 +90,8 @@ html_code = """
   const ctx = canvas.getContext('2d');
 
   img.onload = () => {
-    canvas.width = img.width * 2;
-    canvas.height = img.height * 2;
+    canvas.width = 400;
+    canvas.height = 200;
     ctx.scale(2, 2);
     ctx.drawImage(img, 0, 0);
 
