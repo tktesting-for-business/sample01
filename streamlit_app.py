@@ -19,6 +19,17 @@ except FileNotFoundError:
     st.error(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
     st.stop()
 
+# 画像をリサイズする関数
+def resize_image(image, max_width, max_height):
+    image.thumbnail((max_width, max_height), Image.LANCZOS)  # Lanczosフィルタを使用
+    return image
+
+# リサイズ後の最大サイズ
+MAX_WIDTH = 500
+MAX_HEIGHT = 400
+resized_image = resize_image(image, MAX_WIDTH, MAX_HEIGHT)
+
+
 # 画像をバイト列に変換
 buffered = BytesIO()
 image.save(buffered, format="JPEG")
