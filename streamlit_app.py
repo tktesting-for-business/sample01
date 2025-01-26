@@ -12,6 +12,10 @@ st.title("Embedding Dify app in Streamlit")
 img = Image.open('aaa.jpg')
 st.image(img)
 
+# 画像サイズを取得
+width, height = image.size
+st.write(width + ',' + height)
+
 # 画像を読み込み
 try:
   image = Image.open(IMAGE_PATH)
