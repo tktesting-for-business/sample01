@@ -80,6 +80,35 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+html_code = """
+<img id="myImage" src="aaa.jpg" alt="Target Image" style="display: none;">
+<canvas id="myCanvas"></canvas>
+<script>
+  const img = document.getElementById('myImage');
+  const canvas = document.getElementById('myCanvas');
+  const ctx = canvas.getContext('2d');
+
+  img.onload = () => {
+    canvas.width = img.width * 2;
+    canvas.height = img.height * 2;
+    ctx.scale(2, 2);
+    ctx.drawImage(img, 0, 0);
+
+    // テキストの位置とサイズ (手動で指定)
+    const x = 123;
+    const y = 135;
+    const w = 98;
+    const h = 21;
+
+    // 赤い枠を描画する
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(x, y, w, h);
+  };
+</script>
+"""
+
+stc.html(html_code, height=700)
 
 
 
