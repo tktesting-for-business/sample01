@@ -55,7 +55,7 @@ BOX_STYLE = f"""
     background-size: contain; /* 画像を枠内に収める */
     background-repeat: no-repeat; /* 画像を繰り返さない */
     background-position: center; /* 画像を中央に配置 */
-    min-width: {20}px;
+    min-width: {2000}px;
     min-height: {MAX_HEIGHT}px;
 }}
 </style>
