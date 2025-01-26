@@ -20,21 +20,14 @@ if __name__ == "__main__":
     box_y = st.text_input("y")
     box_w = st.text_input("w")
     box_h = st.text_input("h")
+    # ボタン
+    if st.button("Dify APIを呼び出す"):
+        RedRectDraw(img)
 
-    try:
-        # ボタン
-        if st.button("Dify APIを呼び出す"):
-            answer = get_dify_response(query)
-            #answer = get_dify_response(query)
-        
-        st.write(answer)
-    except requests.RequestException as e:
-        st.write(f"エラーが発生しました: {e}")
-
-box_x = 123
-box_y = 136
-box_w = 114
-box_h = 23
+    #box_x = 123
+    #box_y = 136
+    #box_w = 114
+    #box_h = 23
 
 # 画像サイズを取得
 width, height = img.size
