@@ -34,13 +34,13 @@ box_h = 23
 if __name__ == "__main__":
     # テキストボックス
     #if st.text_input("x").isdigit():
-        box_x = int(st.text_input("x"))
+    box_x = int(st.text_input("x"))
     #if st.text_input("y").isdigit():
-        box_y = int(st.text_input("y"))
+    box_y = int(st.text_input("y"))
     #if st.text_input("w").isdigit():
-        box_w = int(st.text_input("w"))
+    box_w = int(st.text_input("w"))
     #if st.text_input("h").isdigit():
-        box_h = int(st.text_input("h"))
+    box_h = int(st.text_input("h"))
         
     
     # ボタン
