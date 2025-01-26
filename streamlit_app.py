@@ -33,10 +33,10 @@ box_h = 23
 
 if __name__ == "__main__":
     # テキストボックス
-    box_x = st.text_input("x")
-    box_y = st.text_input("y")
-    box_w = st.text_input("w")
-    box_h = st.text_input("h")
+    box_x = int(st.text_input("x"))
+    box_y = int(st.text_input("y"))
+    box_w = int(st.text_input("w"))
+    box_h = int(st.text_input("h"))
     # ボタン
     if st.button("Dify APIを呼び出す"):
 
@@ -54,8 +54,8 @@ if __name__ == "__main__":
         # ImageDraw オブジェクトを作成
         draw = ImageDraw.Draw(image)
         # 赤枠を描画
-        #draw.rectangle([(box_x, box_y), (box_x + box_w, box_y + box_h)], outline="red", width=2)
-        draw.rectangle([(123, 136), (123 + 114, 136 + 23)], fill=(255, 0, 0), outline=(0, 255, 0), width=2)
+        draw.rectangle([(box_x, box_y), (box_x + box_w, box_y + box_h)], outline="red", width=2)
+        #draw.rectangle([(123, 136), (123 + 114, 136 + 23)], fill=(255, 0, 0), outline=(0, 255, 0), width=2)
         # 加工後の画像を保存
         image.save(OUTPUT_PATH, "JPEG")
     
