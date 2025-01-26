@@ -2,6 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as stc
 import base64
 from PIL import Image,ImageDraw
+import requests
 
 # インプット画像ファイルのパス
 IMAGE_PATH = "aaa.jpg"
