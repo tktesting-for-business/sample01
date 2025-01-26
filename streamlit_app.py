@@ -55,7 +55,7 @@ if __name__ == "__main__":
         draw = ImageDraw.Draw(image)
         # 赤枠を描画
         #draw.rectangle([(box_x, box_y), (box_x + box_w, box_y + box_h)], outline="red", width=2)
-        draw.rectangle([(200, 100), (500, 300)], fill=(255, 0, 0), outline=(0, 255, 0), width=10)
+        draw.rectangle([(box_x, box_y), (box_x + box_w, box_y + box_h)], fill=(255, 0, 0), outline=(0, 255, 0), width=2)
         # 加工後の画像を保存
         image.save(OUTPUT_PATH, "JPEG")
     
