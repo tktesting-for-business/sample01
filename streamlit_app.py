@@ -48,8 +48,11 @@ BOX_STYLE = f"""
     margin-bottom: 20px;
     border-radius: 5px;
     background-image: url('{img_url}');
-    background-size: cover; /* 画像を枠全体にフィットさせる */
+    background-size: contain; /* 画像を枠内に収める */
     background-repeat: no-repeat; /* 画像を繰り返さない */
+    background-position: center; /* 画像を中央に配置 */
+    min-width: {MAX_WIDTH}px;
+    min-height: {MAX_HEIGHT}px;
 }}
 </style>
 """
@@ -66,7 +69,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<div class="box" style="background-color: rgba(255, 0, 0, 0.5);">
+<div class="box" style="background-color: rgba(255, 255, 255, 0.5);">
     <h3>半透明な背景</h3>
     <p>文字を読みやすくするために背景色を調整できます。</p>
 </div>
