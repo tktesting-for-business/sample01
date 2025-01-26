@@ -19,7 +19,7 @@ headers = {
 data = {
     "inputs": {"text": 'Hello, how are you?'},
     "response_mode": "streaming",
-    "user": "abc-123"
+    "user": "taka3chijp@gmail.com"
 }
 
 response = requests.post(url, headers=headers, data=json.dumps(data))
