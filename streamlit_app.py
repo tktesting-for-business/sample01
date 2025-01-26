@@ -5,7 +5,7 @@ from PIL import Image
 from io import BytesIO
 
 # 画像ファイルのパス
-IMAGE_PATH = "./aaa.jpeg" # ここにイメージファイルのパスを設定してください
+IMAGE_PATH = "aaa.jpg" # ここにイメージファイルのパスを設定してください
 
 st.title("Embedding Dify app in Streamlit")
 
