@@ -17,9 +17,8 @@ def get_base64_of_image(image_path):
         with open(image_path, "rb") as image_file:
             encoded_string = base64.b64encode(image_file.read()).decode()
     except FileNotFoundError as e:
-        st.write(e)
-    
-    
+        sencoded_string = e
+        
     return encoded_string
 
 # 画像ファイルのパス
