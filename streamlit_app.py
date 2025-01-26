@@ -12,12 +12,15 @@ st.title("Embedding Dify app in Streamlit")
 img = Image.open('aaa.jpg')
 st.image(img)
 
-box_x = st.text_input("x")
-box_y = st.text_input("y")
-box_w = st.text_input("w")
-box_h = st.text_input("h")
+#box_x = st.text_input("x")
+#box_y = st.text_input("y")
+#box_w = st.text_input("w")
+#box_h = st.text_input("h")
 
-
+box_x = 123
+box_y = 136
+box_w = 114
+box_h = 23
 
 # 画像サイズを取得
 width, height = img.size
