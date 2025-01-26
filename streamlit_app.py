@@ -52,7 +52,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<div class="box" style="background-color: rgba(255, 255, 255, 0.5);">
+<div class="box" style="background-color: rgba(255, 255, 255, 0.1);">
     <h3>半透明な背景</h3>
     <p>文字を読みやすくするために背景色を調整できます。</p>
 </div>
