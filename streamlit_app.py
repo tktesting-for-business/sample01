@@ -46,6 +46,7 @@ resized_image = resize_image(image, MAX_WIDTH, MAX_HEIGHT)
 # 画像を読み込み
 try:
     image = Image.open(IMAGE_PATH).convert("RGB") # RGBに変換
+    resized_image = resize_image(image, MAX_WIDTH, MAX_HEIGHT)
 except FileNotFoundError:
     print(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
     exit()
@@ -60,7 +61,7 @@ box_size = 50
 box_coords = (box_x, box_y, box_x + box_size, box_y + box_size)
 
 # ImageDraw オブジェクトを作成
-draw = ImageDraw.Draw(image)
+draw = ImageDraw.Draw(resized_image)
 
 # 赤枠を描画
 draw.rectangle(
@@ -72,11 +73,10 @@ draw.rectangle(
 OUTPUT_PATH = "output_image.jpeg"
 
 # 加工後の画像を保存
-image.save(OUTPUT_PATH, "JPEG")
+resized_image.save(OUTPUT_PATH, "JPEG")
 
 # 画面サイズを調整
-# resized_image = resize_image(image, MAX_WIDTH, MAX_HEIGHT)
 
 # 画面に表示する場合 (Streamlitを使う場合)
 st.write("文字を赤枠で囲った画像")
-st.image(image, caption='赤枠が追加された画像', use_column_width=True)
+st.image(resized_image, caption='赤枠が追加された画像', use_column_width=True)
