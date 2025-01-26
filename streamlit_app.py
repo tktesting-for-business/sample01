@@ -25,8 +25,8 @@ def resize_image(image, max_width, max_height):
     return image
 
 # リサイズ後の最大サイズ
-MAX_WIDTH = 500
-MAX_HEIGHT = 400
+MAX_WIDTH = 360
+MAX_HEIGHT = 268
 resized_image = resize_image(image, MAX_WIDTH, MAX_HEIGHT)
 
 
