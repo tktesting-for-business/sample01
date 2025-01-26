@@ -23,7 +23,8 @@ data = {
     "user": "taka3chijp@gmail.com"
 }
 
-response = requests.post(url, headers=headers, data=json.dumps(data))
+response = requests.post(url, headers=headers, json=data)
+# response = requests.post(url, headers=headers, data=json.dumps(data))
 st.write(response.text)
 #############################
 
