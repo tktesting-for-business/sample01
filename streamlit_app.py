@@ -21,7 +21,7 @@ data = {
     "inputs": {},
     "query": "eh",
     "response_mode": "streaming",
-    # "conversation_id": "1c7e55fb-1ba2-4e10-81b5-30addcea2276",
+    "conversation_id": "1c7e55fb-1ba2-4e10-81b5-30addcea2276",
     "user": "taka3chijp@gmail.com"
 }
 
