@@ -8,8 +8,8 @@ from io import BytesIO
 IMAGE_PATH = "aaa.jpg" # ここにイメージファイルのパスを設定してください
 
 st.title("Embedding Dify app in Streamlit")
-
-img = Image.open('aaa.jpg')
+st.write("元の画像")
+img = Image.open(IMAGE_PATH)
 st.image(img)
 
 #box_x = st.text_input("x")
@@ -78,4 +78,5 @@ image.save(OUTPUT_PATH, "JPEG")
 # resized_image = resize_image(image, MAX_WIDTH, MAX_HEIGHT)
 
 # 画面に表示する場合 (Streamlitを使う場合)
+st.write("文字を赤枠で囲った画像")
 st.image(image, caption='赤枠が追加された画像', use_column_width=True)
