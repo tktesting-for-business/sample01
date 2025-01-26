@@ -44,7 +44,10 @@ if __name__ == "__main__":
         except FileNotFoundError:
             st.error(f"エラー：画像ファイル '{IMAGE_PATH}' が見つかりませんでした。")
             st.stop()
-      
+        
+        # 画像サイズを取得
+        width, height = image.size
+
         RedRectDraw(image, width, height)
         # 画面に表示
         st.write("文字を赤枠で囲った画像")
@@ -62,11 +65,7 @@ MAX_WIDTH = width
 MAX_HEIGHT = height
 
 
-def RedRectDraw(image, max_width, max_height):
-
-  # 画像サイズを取得
-  width, height = image.size
-  
+def RedRectDraw(image, max_width, max_height):  
   # ImageDraw オブジェクトを作成
   draw = ImageDraw.Draw(image)
   
