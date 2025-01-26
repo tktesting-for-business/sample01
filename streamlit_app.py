@@ -8,6 +8,32 @@ IMAGE_PATH = "aaa.jpg"
 # アウトプット画像ファイルのパス
 OUTPUT_PATH = "output_image.jpeg"
 
+#########################################
+url = "https://api.dify.ai/v1/completion-messages"
+
+headers = {
+    'Authorization': 'app-esamNSyt3DcelD4o6yM9uH4U',
+    'Content-Type': 'application/json',
+}
+
+data = {
+    "inputs": {"text": 'Hello, how are you?'},
+    "response_mode": "streaming",
+    "user": "abc-123"
+}
+
+response = requests.post(url, headers=headers, data=json.dumps(data))
+st.write(response.text)
+#############################
+
+
+
+
+
+
+
+
+
 st.title("Embedding Dify app in Streamlit")
 st.write("元の画像")
 # 画像を読み込み
