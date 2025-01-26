@@ -39,7 +39,7 @@ if __name__ == "__main__":
     box_h = st.number_input("h")
         
     # ボタン
-    if st.button("Dify APIを呼び出す"):
+    if st.button("赤枠で囲う"):
 
         # 画像を読み込み
         try:
